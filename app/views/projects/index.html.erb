@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project List</title>
+</head>
+<body>
+<h1>Projects</h1>
+	<ul>
+	<% @projects.each do |project| %>
+		<li><%="#{project.name} #{project.description}"%></li>
+	
+	<% end %>
+	</ul>
+	
+</body>
+</html>
