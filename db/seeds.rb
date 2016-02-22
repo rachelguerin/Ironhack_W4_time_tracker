@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+# (1..25).each { |i| Project.create name: "Project #{i}", description: "Desc #{i}"}
+
+1.upto(25) {|i| Project.create name: "Project #{i}", description: "Desc #{i}"}
