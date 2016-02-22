@@ -8,7 +8,7 @@
 <h1>Projects</h1>
 	<ul>
 	<% @projects.each do |project| %>
-		<li><%="#{project.name} #{project.description}"%></li>
+		<li><%=project.name_with_description%> </li>
 	
 	<% end %>
 	</ul>
