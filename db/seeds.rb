@@ -14,6 +14,10 @@
 	p=Project.create name: "Project #{i}", description: "Desc #{i}"
 
 	1.upto(5) do |j|
-		p.entries.create hours: j, minutes: j*10
+		p.entries.create(
+			date: Date.today - rand(10).days,
+			hours: rand(24), 
+			minutes: rand(60)
+			)
 	end
 end
