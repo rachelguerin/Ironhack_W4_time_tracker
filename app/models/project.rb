@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
 	def self.iron_find(parm)
-		where(id: parm).first
+		where(id: parm).first 
 	end
 
 	def self.clean_old
