@@ -10,4 +10,10 @@
 
 # (1..25).each { |i| Project.create name: "Project #{i}", description: "Desc #{i}"}
 
-1.upto(25) {|i| Project.create name: "Project #{i}", description: "Desc #{i}"}
+1.upto(25) do |i| 
+	p=Project.create name: "Project #{i}", description: "Desc #{i}"
+
+	1.upto(5) do |j|
+		p.entries.create hours: j, minutes: j*10
+	end
+end
