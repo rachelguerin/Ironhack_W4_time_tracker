@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
 	def index
-		@project = Project.find_by(id: params[:project_id])
+		@project = project
 		@entries = @project.entries
 		total_time_in_month = @project.total_time_in_month(Time.now.month,Time.now.year)
 		@current_month_hours = total_time_in_month[:hours]
@@ -8,12 +8,12 @@ class EntriesController < ApplicationController
 	end
 
 	def new
-		@project = Project.find_by(id: params[:project_id])
+		@project = project
 		@entry = @project.entries.new
 	end
 
 	def create
-		@project = Project.find_by(id: params[:project_id])
+		@project = project
 		@entry = @project.entries.new entry_params
 		if @entry.save
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
@@ -21,6 +21,25 @@ class EntriesController < ApplicationController
 			render "new"
 		end
 	
+	end
+
+	def edit
+		@project = project
+		@entry = @project.entries.find_by(id: params[:id])
+	end
+
+	def update
+		@project = Project.find_by(id: params[:project_id])
+		@entry = @project.entries.find_by(id: params[:id])
+		if @entry.update_attributes entry_params
+			redirect_to action: 'index', controller: 'entries', project_id: @project.id
+		else 
+			render "new"
+		end
+	end
+
+	def project
+		@_project = Project.find_by(id: params[:project_id]) #to refactor later
 	end
 
 	private

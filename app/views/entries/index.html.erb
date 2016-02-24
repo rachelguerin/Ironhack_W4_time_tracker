@@ -1,9 +1,9 @@
 <h2><%=@project.name%></h2>
 <h4><%=@project.description%></h4>
 <ul><% @entries.each do |entry| %>
-	<li><%=entry.get_string%></li>
+	<li><%= link_to entry.get_string, edit_project_entry_path(@project.id, entry.id) %></li>
 	<%end%>
 </ul>
 <p>Total time this month: <strong><%="#{@current_month_hours} hours #{@current_month_minutes} minutes"%></strong> </p>
-<p><%= link_to("Add new entry",new_project_entry_path(@project))%></p>
+<p><%= link_to("Add new entry",new_project_entry_path)%></p>
 <p><%= link_to("<< Back to projects",projects_path)%></p>
