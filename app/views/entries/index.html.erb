@@ -1,0 +1,6 @@
+<h2><%=@project.name%></h2>
+<h3>Total time this month: <%=@project.total_hours_in_month(Time.now.month,Time.now.year)%></h3>
+<ul><% @entries.each do |entry| %>
+	<li><%=entry.get_string%></li>
+	<%end%>
+</ul>
