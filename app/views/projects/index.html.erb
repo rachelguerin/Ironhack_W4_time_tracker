@@ -2,7 +2,10 @@
 <h1>Projects</h1>
 	<ul>
 	<% @projects.each do |project| %>
-		<li><%=project.name_with_description%> </li>
+		<li>
+			<%= link_to(project.name_with_description,project_entries_path(project))%>
+			<%= link_to("Show",project_path(project))%>
+		</li>
 	
 	<% end %>
 	</ul>

@@ -5,3 +5,5 @@
 	<%end%>
 </ul>
 <p>Total time this month: <strong><%="#{@current_month_hours} hours #{@current_month_minutes} minutes"%></strong> </p>
+<p><%= link_to("Add new entry",new_project_entry_path(@project))%></p>
+<p><%= link_to("<< Back to projects",projects_path)%></p>
