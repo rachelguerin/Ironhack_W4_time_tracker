@@ -6,4 +6,13 @@ class EntriesController < ApplicationController
 		@current_month_hours = total_time_in_month[:hours]
 		@current_month_minutes = total_time_in_month[:minutes]
 	end
+
+	def new
+		@project = Project.find_by(id: params[:project_id])
+		@entry = @project.entries.new
+	end
+
+	def create
+
+	end
 end

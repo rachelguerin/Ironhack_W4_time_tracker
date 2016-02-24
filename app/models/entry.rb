@@ -3,7 +3,7 @@ class Entry < ActiveRecord::Base
 	validates :hours, :minutes, numericality: {only_integer: true}
 	validates :date, :hours, :minutes, presence: true
 	validates :project, presence: true
-	validates :project_exists?
+	# validates :project_exists?
 
 	def get_string
 		"#{self.hours} h - #{self.minutes} m - #{self.date.strftime(format='%F')}"

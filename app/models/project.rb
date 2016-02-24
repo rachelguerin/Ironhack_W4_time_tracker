@@ -4,9 +4,11 @@ class Project < ActiveRecord::Base
 	validates :name, uniqueness: true
 	validates :name, length: {maximum: 30}
 	validates :name, format: {with: /\w\s[^_]/} #alphanumeric & spaces
-	#validates :name, format: {with: /[A-Za-z0-9\s]/} #alphanumeric & spaces
-	# validates :description, presence: true
+	#validates :name, format: {with: /[A-Za-z0-9\s]+/} #alphanumeric & spaces
+	#validates :name, format: {with: /\A[A-Za-z0-9\s]+/} #alphanumeric & spaces
 	
+	# validates :description, presence: true
+
 
 	def self.iron_find(parm)
 		where(id: parm).first 
