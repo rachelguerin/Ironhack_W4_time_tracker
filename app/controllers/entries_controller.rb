@@ -23,6 +23,13 @@ class EntriesController < ApplicationController
 	
 	end
 
+	def destroy
+		 @project = project
+		 @entry = @project.entries.find_by(id: params[:id])
+		 @entry.destroy
+		 redirect_to action: 'index', controller: 'entries', project_id: @project.id
+	end
+
 	def edit
 		@project = project
 		@entry = @project.entries.find_by(id: params[:id])
@@ -34,7 +41,7 @@ class EntriesController < ApplicationController
 		if @entry.update_attributes entry_params
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else 
-			render "new"
+			render "edit"
 		end
 	end
 

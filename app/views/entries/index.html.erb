@@ -1,7 +1,11 @@
 <h2><%=@project.name%></h2>
 <h4><%=@project.description%></h4>
 <ul><% @entries.each do |entry| %>
-	<li><%= link_to entry.get_string, edit_project_entry_path(@project.id, entry.id) %></li>
+	<li><%= entry.get_string %>
+	<%= link_to "Edit", edit_project_entry_path(@project.id, entry.id) %>
+	<%= link_to "Delete", project_entry_path(@project, entry), method: :delete, data: {confirm: 'Are you sure?'} %>
+
+	</li>
 	<%end%>
 </ul>
 <p>Total time this month: <strong><%="#{@current_month_hours} hours #{@current_month_minutes} minutes"%></strong> </p>

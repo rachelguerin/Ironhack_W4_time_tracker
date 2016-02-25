@@ -5,12 +5,48 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
 </head>
 <body>
 	<div id="wrapper">
-	<header>
-		<h1>Time tracking tool</h1>
+	<header class="header">
+	<div class="container">
+    <!-- Left side -->
+    <div class="header-left">
+      <a class="header-item" href="#">
+        logo img tag here
+      </a>
+      <a class="header-tab" href="#">
+        Tab
+      </a>
+      <a class="header-tab is-active" href="#">
+        Active tab
+      </a>
+    </div>
+
+    <!-- Hamburger menu (on mobile) -->
+    <span class="header-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <!-- Right side -->
+    <div class="header-right header-menu">
+      <span class="header-item">
+        <a href="#">Nav item</a>
+      </span>
+      <span class="header-item">
+        <a href="#">Other nav item</a>
+      </span>
+      <span class="header-item">
+        <a class="button" href="#">Button</a>
+      </span>
+    </div>
+  </div>
 	</header>
+	<h1>Time tracking tool</h1>
 	<%= yield %>
 	<footer>
 		Ironhack - Rails introduction
