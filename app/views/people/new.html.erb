@@ -1,0 +1,18 @@
+<%= flash_message %>
+<% if @person.errors.any? %>
+<ul>
+	<% @person.errors.full_messages.each do |e| %>
+	<li><%= e %></li>
+	<% end %>
+</ul>
+<% end %>
+
+<%= form_for [@person] do |f|%>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= collection_select(:project, :project_id, Project.all, :id, :name ) %>
+	<br>
+	<%= f.submit 'Save' %>
+
+<% end %>

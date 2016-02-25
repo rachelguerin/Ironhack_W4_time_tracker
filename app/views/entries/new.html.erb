@@ -1,24 +1,3 @@
-<%=	flash_message %>
-<% if @entry.errors.any? %>
-<ul>
-	<% @entry.errors.full_messages.each do |e| %>
-	<li><%= e %></li>
-	<% end %>
-</ul>
-<% end %>
+<h2>Creating a new entry in <%=@project.name %> project</h2>
 
-<%= form_for [@project, @entry] do |f| %>
-	<%= f.label :hours %>
-	<%= f.text_field :hours %>
-	<br>
-	<%= f.label :minutes %>
-	<%= f.text_field :minutes %>
-	<br>
-	<%= f.label :date %>
-	<%= f.date_field :date %>
-	<br>
-	<%= f.submit 'Save' %>
-
-<% end %>
-
-<%= link_to("Cancel",project_entries_path(@project)) %>
+<%= render 'shared/form' %>

@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 	has_many :entries, dependent: :destroy
+	has_many :participations
+	has_many :people, through: :participations
 	validates :name, presence: true
 	validates :name, uniqueness: true
 	validates :name, length: {maximum: 30}
