@@ -22,6 +22,12 @@ class ProjectsController < ApplicationController
 
 	end
 
+	def destroy
+		@project = Project.find_by(id: params[:id])
+		@project.destroy
+		redirect_to projects_path
+	end
+
 	def create
 		project = Project.new(params[:project])
 		if project.save

@@ -2,9 +2,6 @@ class EntriesController < ApplicationController
 	def index
 		@project = project
 		@entries = @project.entries
-		total_time_in_month = @project.total_time_in_month(Time.now.month,Time.now.year)
-		@current_month_hours = total_time_in_month[:hours]
-		@current_month_minutes = total_time_in_month[:minutes]
 	end
 
 	def new
@@ -16,8 +13,10 @@ class EntriesController < ApplicationController
 		@project = project
 		@entry = @project.entries.new entry_params
 		if @entry.save
+			flash[:notice] = 'Entry created successfully'
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else 
+			flash[:alert] = 'Entry not updated'
 			render "new"
 		end
 	
@@ -39,8 +38,10 @@ class EntriesController < ApplicationController
 		@project = Project.find_by(id: params[:project_id])
 		@entry = @project.entries.find_by(id: params[:id])
 		if @entry.update_attributes entry_params
+			flash[:notice] = 'Entry updated successfully'			
 			redirect_to action: 'index', controller: 'entries', project_id: @project.id
 		else 
+			flash[:alert] = 'Entry not updated'
 			render "edit"
 		end
 	end

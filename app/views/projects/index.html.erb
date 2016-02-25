@@ -5,6 +5,7 @@
 		<li>
 			<%= link_to(project.name_with_description,project_entries_path(project))%>
 			<%= link_to("Show",project_path(project))%>
+			<%= link_to("Delete",project_path(project), method: :delete, data: {confirm: 'Are you sure?'})%>
 		</li>
 	
 	<% end %>
